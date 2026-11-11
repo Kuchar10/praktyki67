@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Poznaj GEO (Generative Engine Optimization) — dowiedz się, jak zwiększyć widoczność marki w odpowiedziach wyszukiwarek i asystentów AI.">
+  <meta name="theme-color" content="#080d18">
+  <title>GEO — widoczność w erze sztucznej inteligencji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#080d18; --surface:#101a2b; --surface2:#142239; --text:#f3f6ff;
+      --muted:#a6b2c8; --line:rgba(174,196,230,.14); --cyan:#66e3d2;
+      --blue:#7198ff; --purple:#a78bfa; --max:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.65}
+    body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 78% 8%,rgba(72,113,255,.16),transparent 34%),radial-gradient(ellipse at 8% 40%,rgba(63,221,199,.08),transparent 30%)}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max),calc(100% - 44px));margin:auto}
+    .nav-wrap{position:sticky;top:0;z-index:20;background:rgba(8,13,24,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;font-family:"Space Grotesk";font-weight:700;letter-spacing:-.5px}
+    .brand-mark{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#08111e;font-weight:800}
+    .brand span:last-child{font-size:19px}
+    .nav-links{display:flex;gap:25px;align-items:center;color:var(--muted);font-size:13px;font-weight:600}
+    .nav-links a:hover,.nav-links a.active{color:var(--cyan)}
+    .nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:12px 19px;background:var(--cyan);color:#07131c;font-weight:700;font-size:13px;transition:.2s;cursor:pointer}
+    .nav-cta:hover,.button:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(102,227,210,.2)}
+    .menu-btn{display:none;background:none;border:1px solid var(--line);color:white;border-radius:10px;padding:8px 11px;font-size:20px}
+    .hero{padding:104px 0 92px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:65px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 15px var(--cyan)}
+    h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.12;letter-spacing:-1.5px}
+    h1{font-size:clamp(43px,6vw,72px);margin:22px 0}
+    h1 .gradient,.gradient{background:linear-gradient(100deg,var(--cyan),#8eaaff 60%,#c2a4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{font-size:18px;color:var(--muted);max-width:590px}
+    .hero-actions{display:flex;gap:14px;align-items:center;margin-top:30px;flex-wrap:wrap}
+    .button.secondary{background:transparent;color:var(--text);border:1px solid var(--line)}
+    .hero-note{font-size:12px;color:var(--muted);margin-top:18px}
+    .visual{position:relative;min-height:410px;display:grid;place-items:center}
+    .orbit{position:absolute;width:350px;height:350px;border:1px solid rgba(130,165,255,.2);border-radius:50%;box-shadow:0 0 80px rgba(90,130,255,.08) inset}
+    .orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(102,227,210,.16);border-radius:50%;inset:34px}
+    .orbit:after{inset:72px}
+    .core{width:170px;height:170px;border-radius:38px;display:grid;place-items:center;text-align:center;background:linear-gradient(145deg,#1c3550,#111a30);border:1px solid rgba(102,227,210,.38);box-shadow:0 0 70px rgba(102,227,210,.13);transform:rotate(-7deg)}
+    .core strong{font:700 46px "Space Grotesk";color:var(--cyan);display:block}
+    .core span{font-size:12px;color:#c8d5eb;letter-spacing:2px}
+    .float-card{position:absolute;background:rgba(18,30,49,.94);border:1px solid var(--line);border-radius:15px;padding:13px 16px;box-shadow:0 15px 45px #0005;font-size:12px;color:var(--muted)}
+    .float-card b{display:block;color:var(--text);font-size:13px;margin-bottom:3px}
+    .fc1{top:46px;right:0}.fc2{bottom:48px;left:0}.fc3{bottom:28px;right:8px}
+    section{padding:88px 0;border-top:1px solid var(--line)}
+    .section-head{max-width:700px;margin-bottom:42px}
+    .kicker{font-size:12px;text-transform:uppercase;letter-spacing:1.8px;color:var(--cyan);font-weight:700}
+    h2{font-size:clamp(32px,4vw,48px);margin:13px 0 17px}
+    .section-head p{color:var(--muted);font-size:16px;margin:0}
+    .definition-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+    .panel,.card{background:linear-gradient(145deg,rgba(20,34,57,.92),rgba(14,23,39,.92));border:1px solid var(--line);border-radius:22px;padding:28px}
+    .panel p{color:var(--muted);margin:0 0 16px}
+    .panel p:last-child{margin-bottom:0}
+    .highlight{color:var(--cyan);font-weight:700}
+    .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .stat{padding:22px;border-radius:17px;background:rgba(102,227,210,.055);border:1px solid rgba(102,227,210,.15)}
+    .stat strong{font:600 27px "Space Grotesk";display:block;color:var(--cyan)}
+    .stat span{font-size:12px;color:var(--muted)}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .step{position:relative;padding:24px 20px;background:var(--surface);border:1px solid var(--line);border-radius:18px}
+    .step-num{font:700 13px "Space Grotesk";color:var(--cyan);margin-bottom:25px}
+    .step h3{font-size:18px;letter-spacing:-.4px;margin:0 0 10px}
+    .step p{font-size:13px;color:var(--muted);margin:0}
+    .step:not(:last-child):after{content:"→";position:absolute;right:-13px;top:48%;z-index:2;color:var(--cyan);font-size:20px}
+    .compare{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+    .compare th,.compare td{text-align:left;padding:19px 22px;border-bottom:1px solid var(--line);vertical-align:top}
+    .compare th{font:600 15px "Space Grotesk";background:var(--surface2)}
+    .compare th:nth-child(2){color:var(--blue)}.compare th:nth-child(3){color:var(--cyan)}
+    .compare td{font-size:14px;color:var(--muted)}
+    .compare td:first-child{color:var(--text);font-weight:700;width:19%}
+    .compare tr:last-child td{border-bottom:0}
+    .tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .tip{padding:23px;background:var(--surface);border:1px solid var(--line);border-radius:18px;transition:.2s}
+    .tip:hover{transform:translateY(-4px);border-color:rgba(102,227,210,.4)}
+    .tip-icon{width:39px;height:39px;display:grid;place-items:center;border-radius:12px;background:rgba(102,227,210,.1);color:var(--cyan);font-size:18px;margin-bottom:18px}
+    .tip h3{font-size:17px;letter-spacing:-.4px;margin:0 0 9px}
+    .tip p{font-size:13px;color:var(--muted);margin:0}
+    .checklist{margin-top:24px;padding:22px 25px;border:1px solid rgba(102,227,210,.2);background:rgba(102,227,210,.045);border-radius:18px}
+    .checklist h3{font-size:17px;margin:0 0 12px}
+    .checklist ul{display:grid;grid-template-columns:1fr 1fr;gap:9px 22px;padding:0;margin:0;list-style:none}
+    .checklist li{font-size:13px;color:var(--muted)}
+    .checklist li:before{content:"✓";color:var(--cyan);font-weight:700;margin-right:9px}
+    .summary{display:grid;grid-template-columns:1fr auto;gap:35px;align-items:center;padding:38px;background:linear-gradient(120deg,rgba(102,227,210,.12),rgba(113,152,255,.12));border:1px solid rgba(102,227,210,.2);border-radius:25px}
+    .summary h2{font-size:35px;margin:0 0 12px}.summary p{max-width:740px;color:var(--muted);margin:0}
+    .summary .button{white-space:nowrap}
+    footer{padding:30px 0;color:#8190aa;font-size:12px}
+    footer .container{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    @media(max-width:900px){.nav-links{gap:13px;font-size:11px}.hero-grid{gap:25px}.steps{grid-template-columns:repeat(2,1fr)}.step:nth-child(2):after{display:none}.tips-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:680px){
+      .container{width:min(100% - 32px,var(--max))}nav{height:66px}.menu-btn{display:block}.nav-cta{display:none}
+      .nav-links{display:none;position:absolute;top:66px;left:0;right:0;padding:18px 22px 22px;background:#0b1322;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;font-size:14px}
+      .nav-links.open{display:flex}.hero{padding:70px 0 55px}.hero-grid,.definition-grid{grid-template-columns:1fr}.visual{min-height:340px}.orbit{width:290px;height:290px}.core{width:145px;height:145px}.core strong{font-size:39px}
+      .fc1{right:0;top:22px}.fc2{left:0;bottom:20px}.fc3{right:0;bottom:5px}
+      section{padding:65px 0}.steps,.tips-grid{grid-template-columns:1fr}.step:after{display:none!important}
+      .compare{font-size:12px}.compare th,.compare td{padding:12px 10px}.compare td:first-child{width:22%}
+      .checklist ul{grid-template-columns:1fr}.summary{grid-template-columns:1fr;padding:27px}.summary .button{justify-self:start}
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="container">
+      <a class="brand" href="#start" aria-label="GEO — strona główna"><span class="brand-mark">G</span><span>GEO<span class="gradient">/AI</span></span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#definicja">Czym jest GEO?</a><a href="#dzialanie">Jak działa?</a><a href="#porownanie">SEO vs GEO</a><a href="#wskazowki">Wskazówki</a>
+      </div>
+      <a class="nav-cta" href="#podsumowanie">Poznaj przyszłość <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+
+  <main>
+    <header class="hero" id="start">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Nowa era widoczności w internecie</div>
+          <h1>Nie tylko w Google.<br><span class="gradient">Bądź odpowiedzią</span><br>dla AI.</h1>
+          <p class="lead">Poznaj GEO — sposób optymalizacji treści, dzięki któremu Twoja marka i wiedza mogą być łatwiej odnajdywane, rozumiane i wykorzystywane przez systemy sztucznej inteligencji.</p>
+          <div class="hero-actions">
+            <a class="button" href="#definicja">Odkryj, czym jest GEO <span aria-hidden="true">→</span></a>
+            <a class="button secondary" href="#porownanie">SEO a GEO</a>
+          </div>
+          <p class="hero-note">GEO = Generative Engine Optimization · znane również jako AI SEO</p>
+        </div>
+        <div class="visual" aria-label="Ilustracja symbolizująca sztuczną inteligencję i widoczność treści">
+          <div class="orbit"></div>
+          <div class="core"><div><strong>AI</strong><span>SEARCH</span></div></div>
+          <div class="float-card fc1"><b>Odpowiedzi AI</b>Twoja treść jako źródło</div>
+          <div class="float-card fc2"><b>Wartościowa wiedza</b>Jasne i konkretne informacje</div>
+          <div class="float-card fc3"><b>Większa widoczność</b>W wielu punktach kontaktu</div>
+        </div>
+      </div>
+    </header>
+
+    <section id="definicja">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">01 / Podstawy</div>
+          <h2>Co to jest <span class="gradient">pozycjonowanie AI?</span></h2>
+          <p>Użytkownicy coraz częściej nie szukają wyłącznie listy stron — oczekują gotowej, zrozumiałej odpowiedzi.</p>
+        </div>
+        <div class="definition-grid">
+          <div class="panel">
+            <p><span class="highlight">GEO (Generative Engine Optimization)</span> to działania polegające na przygotowywaniu i optymalizowaniu treści internetowych tak, aby systemy generatywnej sztucznej inteligencji mogły je łatwo znaleźć, zrozumieć, ocenić i potencjalnie wykorzystać podczas tworzenia odpowiedzi.</p>
+            <p>Chodzi między innymi o widoczność w odpowiedziach narzędzi takich jak asystenci AI i wyszukiwarki wyposażone w generatywne podsumowania. GEO nie zastępuje SEO — uzupełnia je o nowy sposób docierania do odbiorców.</p>
+            <p>W praktyce oznacza to publikowanie rzetelnych, dobrze uporządkowanych i użytecznych informacji, które odpowiadają na rzeczywiste pytania użytkowników.</p>
+          </div>
+          <div class="stat-grid">
+            <div class="stat"><strong>Treść</strong><span>Jakość i przydatność informacji</span></div>
+            <div class="stat"><strong>Kontekst</strong><span>Jasne odpowiedzi na konkretne pytania</span></div>
+            <div class="stat"><strong>Zaufanie</strong><span>Wiarygodne źródła i autorzy</span></div>
+            <div class="stat"><strong>Struktura</strong><span>Treści łatwe do odczytania przez maszyny</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dzialanie">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">02 / Mechanizm</div>
+          <h2>Jak działa <span class="gradient">GEO?</span></h2>
+          <p>Systemy AI analizują pytanie, wyszukują lub wykorzystują informacje i budują odpowiedź. Dobrze przygotowana strona zwiększa szansę, że jej treść będzie przydatnym źródłem.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><div class="step-num">KROK 01</div><h3>Pytanie użytkownika</h3><p>Użytkownik wpisuje pytanie lub opisuje problem własnymi słowami, często bardziej szczegółowo niż w tradycyjnej wyszukiwarce.</p></article>
+          <article class="step"><div class="step-num">KROK 02</div><h3>Wyszukiwanie informacji</h3><p>System może odnaleźć pasujące materiały w sieci lub skorzystać z dostępnej mu wiedzy i źródeł.</p></article>
+          <article class="step"><div class="step-num">KROK 03</div><h3>Analiza i selekcja</h3><p>Informacje są analizowane pod kątem dopasowania do pytania, jakości, wiarygodności i kontekstu.</p></article>
+          <article class="step"><div class="step-num">KROK 04</div><h3>Gotowa odpowiedź</h3><p>AI tworzy odpowiedź, czasem wskazując źródła lub linki do stron, z których pochodzą wykorzystane informacje.</p></article>
+        </div>
+        <p class="hero-note">Ważne: nie istnieje gwarantowany sposób na umieszczenie strony w odpowiedzi AI. Mechanizmy różnią się między usługami i stale się zmieniają.</p>
+      </div>
+    </section>
+
+    <section id="porownanie">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">03 / Porównanie</div>
+          <h2>Tradycyjne SEO <span class="gradient">a GEO</span></h2>
+          <p>Oba podejścia pomagają użytkownikom dotrzeć do wartościowych informacji, ale koncentrują się na nieco innym efekcie.</p>
+        </div>
+        <table class="compare">
+          <thead><tr><th>Obszar</th><th>SEO</th><th>GEO</th></tr></thead>
+          <tbody>
+            <tr><td>Główny cel</td><td>Widoczność strony na liście wyników wyszukiwania.</td><td>Możliwość wykorzystania treści w odpowiedziach generowanych przez AI.</td></tr>
+            <tr><td>Efekt dla użytkownika</td><td>Użytkownik wybiera link i przechodzi na stronę.</td><td>Użytkownik może otrzymać podsumowanie z informacjami i odnośnikami do źródeł.</td></tr>
+            <tr><td>Treści</td><td>Treści dopasowane do zapytań i intencji wyszukiwania.</td><td>Treści konkretne, dobrze wyjaśnione, wiarygodne i łatwe do wykorzystania jako źródło.</td></tr>
+            <tr><td>Ważne elementy</td><td>Techniczna jakość strony, słowa kluczowe, linki i użyteczność.</td><td>Jakość źródeł, kontekst, struktura, aktualność i jednoznaczne odpowiedzi.</td></tr>
+            <tr><td>Pomiar</td><td>Pozycje, ruch organiczny, kliknięcia i konwersje.</td><td>Wzmianki i cytowania w odpowiedziach AI, ruch z tych źródeł oraz konwersje.</td></tr>
+          </tbody>
+        </table>
+        <p class="hero-note">Najlepsze podejście? Łączyć SEO i GEO. Szybka, dostępna i wartościowa strona jest dobrym fundamentem dla obu strategii.</p>
+      </div>
+    </section>
+
+    <section id="wskazowki">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">04 / Praktyka</div>
+          <h2>Jak poprawić widoczność <span class="gradient">strony w AI?</span></h2>
+          <p>Nie ma magicznego przycisku „włącz GEO”. Są za to konkretne działania, które poprawiają jakość i czytelność witryny.</p>
+        </div>
+        <div class="tips-grid">
+          <article class="tip"><div class="tip-icon">✦</div><h3>1. Odpowiadaj konkretnie</h3><p>Twórz treści, które jasno odpowiadają na pytania. Najważniejsze wyjaśnienie umieszczaj na początku, a szczegóły rozwijaj dalej.</p></article>
+          <article class="tip"><div class="tip-icon">▤</div><h3>2. Uporządkuj strukturę</h3><p>Stosuj logiczne nagłówki H1–H3, krótkie akapity, listy i tabele. Każda sekcja powinna mieć czytelny temat.</p></article>
+          <article class="tip"><div class="tip-icon">✓</div><h3>3. Buduj wiarygodność</h3><p>Podawaj autora, źródła, daty i podstawy prezentowanych danych. Nie publikuj niezweryfikowanych informacji.</p></article>
+          <article class="tip"><div class="tip-icon">↻</div><h3>4. Aktualizuj materiały</h3><p>Sprawdzaj, czy artykuły, statystyki, ceny i instrukcje są aktualne. Usuwaj nieaktualne lub sprzeczne informacje.</p></article>
+          <article class="tip"><div class="tip-icon">⌘</div><h3>5. Zadbaj o technikalia</h3><p>Popraw szybkość, wersję mobilną, indeksowanie i dostępność treści. Używaj danych strukturalnych tam, gdzie pasują.</p></article>
+          <article class="tip"><div class="tip-icon">◎</div><h3>6. Pokaż doświadczenie</h3><p>Dodawaj przykłady, własne analizy, studia przypadków i praktyczne wskazówki. Unikalna wiedza wyróżnia stronę.</p></article>
+        </div>
+        <div class="checklist">
+          <h3>Krótka lista kontrolna GEO</h3>
+          <ul>
+            <li>Treści odpowiadają na realne pytania.</li>
+            <li>Każda podstrona ma jasny temat.</li>
+            <li>Informacje mają podane źródła.</li>
+            <li>Witryna działa na telefonach.</li>
+            <li>Treści są regularnie aktualizowane.</li>
+            <li>Strona jest dostępna do indeksowania.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="podsumowanie">
+      <div class="container">
+        <div class="summary">
+          <div>
+            <div class="kicker">05 / Podsumowanie</div>
+            <h2>Widoczność, która <span class="gradient">wykracza poza linki.</span></h2>
+            <p>Pozycjonowanie AI staje się ważne, ponieważ sposób wyszukiwania informacji się zmienia. Coraz większą rolę odgrywają odpowiedzi generowane przez asystentów i wyszukiwarki AI. Warto więc tworzyć strony, które są nie tylko dobrze zoptymalizowane technicznie, ale przede wszystkim rzetelne, użyteczne i zrozumiałe. GEO nie zastępuje SEO — rozwija strategię widoczności o kolejny kanał dotarcia do odbiorców.</p>
+          </div>
+          <a class="button" href="#start">Wróć na górę ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container"><span>GEO/AI — widoczność w erze sztucznej inteligencji</span><span>Projekt edukacyjny · 2026</span></div></footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+      menuBtn.textContent = isOpen ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = '☰';
+    }));
+    const sections = document.querySelectorAll('main section[id]');
+    const links = document.querySelectorAll('.nav-links a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
